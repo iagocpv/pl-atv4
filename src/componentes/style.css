@@ -1,0 +1,91 @@
+.item-listado { 
+    display: flex;
+    gap: 2em;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.conteudo {
+  display: flex;
+  gap: 2em;
+  overflow: hidden;
+}
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+
+.icone {
+  height: 1.2em;
+  width: 1.2em;
+  cursor: pointer;
+}
+
+.edit {
+  margin: auto auto;
+  color: blue;
+  cursor: pointer;
+}
+.form-cliente label {
+  margin: 0.2em;
+  color:gray
+}
+.detalhes {
+  margin: 0.8em 1em;  
+}
+
+.detalhes-item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.detalhes-item div {
+  flex: 1 1 30em;
+  min-width: 33%;
+  overflow: hidden;
+  margin-bottom: 0.2em;
+}
+
+.seletor-secao {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin-bottom: 1em;
+}
+.seletor-secao div {
+  cursor: pointer;
+}
+
+.list-title {
+  margin: 1em;
+  text-align: center;
+}
+.cadastro-title {
+  margin: 2em 0;
+  text-align: center;
+}
+
+.opcoes-cadastro {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 5%;
+  gap: 2em;
+}
+
+.opcoes-funcoes {
+  display: flex;
+  justify-content: space-around;
+  padding: 5%;
+}
+
+.opcoes-cadastro button {
+  flex: 1 1 25em; 
+  padding: 1em;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  background-color: #e3f2fd;
+  max-width: 25em;
+}
+ 
