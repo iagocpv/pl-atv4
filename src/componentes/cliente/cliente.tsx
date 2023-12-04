@@ -103,7 +103,7 @@ function Cliente(props: props) {
                             <div><b>Cidade:  </b>{props.cidade}</div>
                             <div><b>Estado:  </b>{props.estado}</div>
                             <div><b>Código Postal:  </b>{props.cep}</div>
-                            <div><b>Informações adicionais:  </b>{props.info}</div>
+                            <div><b>Informações Adicionais: </b>{props.info}</div>
                         </div>
                     </div>
                 </div>

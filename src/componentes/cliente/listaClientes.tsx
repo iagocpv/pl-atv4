@@ -1,14 +1,53 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { useState, useEffect } from "react";
 import Cliente from "./cliente";
-import { clientesSpring } from "./clientesSpring";
 
 type props = {
     tema: string
 }
 
+type Cliente = {
+    id: number;
+    nome: string;
+    nomeSocial: string;
+    email: string;
+    endereco: {
+        id: number;
+      rua: string;
+      numero: string;
+      bairro: string;
+      cidade: string;
+      estado: string;
+      codigoPostal: string;
+      informacoesAdicionais: string;
+    };
+    telefones: {
+        id: number;
+        numero: string;
+        ddd: string;
+        links: never[];
+    }[]
+  };
+
 function ListaCliente(props: props) {
-    let clientes = clientesSpring
+    const [cliente, setCliente] = useState([])
+    const clientes: Cliente[] = cliente
     let tema = props.tema
+
+    useEffect(() => {
+        fetch('http://localhost:32831/cliente/clientes', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(res => {
+            res.json().then(data => {
+                setCliente(data)
+                console.log(data)
+            })
+        })
+    }, [])
 
     return (
         <div className="container-fluid">
@@ -16,7 +55,7 @@ function ListaCliente(props: props) {
             <div className="list-group">
                 {clientes.map(c => {
                     return (
-                        <Cliente key={c.id}
+                        <Cliente
                             id={c.id}
                             nome={c.nome}
                             nomeSocial={c.nomeSocial}
@@ -29,9 +68,10 @@ function ListaCliente(props: props) {
                             estado={c.endereco.estado}
                             cep={c.endereco.codigoPostal}
                             info={c.endereco.informacoesAdicionais}
-                            telefones={c.telefones}
-                            />
+                            telefones = {c.telefones}
+                        ></Cliente>
                     )
+                
                 })}
             </div>
         </div>
