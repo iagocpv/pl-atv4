@@ -52,12 +52,12 @@ function ListaCliente(props: props) {
             <div className="list-group">
                 {clientes.map(c => {
                     return (
-                        <Cliente key={c.id}
+                        <Cliente
                             id={c.id}
                             nome={c.nome}
                             nomeSocial={c.nomeSocial}
                             email={c.email}
-                            rua={c.endereco.rua}
+                            rua = {c.endereco.rua}
                             numero={c.endereco.numero}
                             bairro={c.endereco.bairro}
                             cidade={c.endereco.cidade}
