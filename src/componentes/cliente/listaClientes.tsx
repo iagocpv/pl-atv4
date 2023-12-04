@@ -1,14 +1,50 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { useState, useEffect } from "react";
 import Cliente from "./cliente";
-import { clientesSpring } from "./clientesSpring";
 
 type props = {
     tema: string
 }
 
+type Cliente = {
+    id: number;
+    nome: string;
+    nomeSocial: string;
+    email: string;
+    endereco: {
+      rua: string;
+      numero: string;
+      bairro: string;
+      cidade: string;
+      estado: string;
+      codigoPostal: string;
+    };
+    telefones: {
+        id: number;
+        numero: string;
+        ddd: string;
+        links: never[];
+    }[]
+  };
+
 function ListaCliente(props: props) {
-    let clientes = clientesSpring
+    const [cliente, setCliente] = useState([])
+    const clientes: Cliente[] = cliente
     let tema = props.tema
+
+    useEffect(() => {
+        fetch('http://localhost:32831/cliente/clientes', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(res => {
+            res.json().then(data => {
+                setCliente(data)
+            })
+        })
+    }, [])
 
     return (
         <div className="container-fluid">
@@ -27,10 +63,10 @@ function ListaCliente(props: props) {
                             cidade={c.endereco.cidade}
                             estado={c.endereco.estado}
                             cep={c.endereco.codigoPostal}
-                            info={c.endereco.informacoesAdicionais}
-                            telefones={c.telefones}
-                            />
+                            telefones = {c.telefones}
+                        ></Cliente>
                     )
+                
                 })}
             </div>
         </div>

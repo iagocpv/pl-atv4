@@ -36,12 +36,9 @@ function FormularioCadastroCliente(props: props) {
                 <div className="input-group mb-3">
                     <input type="text" className="form-control" placeholder="CEP" aria-label="CEP" aria-describedby="basic-addon1" />
                 </div>
-                <div className="input-group mb-3">
-                    <textarea className="form-control" placeholder="Informações adicionais" aria-label="Informações adicionais" aria-describedby="basic-addon1" />
-                </div>
 
                 <div className="input-group mb-3">
-                    <button className="btn btn-outline-secondary" type="button" style={{ background: tema }}>Cadastrar</button>
+                    <button className="btn btn-outline-secondary" type="submit" style={{ background: tema }}>Cadastrar</button>
                 </div>
             </form>
         </div>

@@ -16,7 +16,6 @@ type props = {
     cidade: string,
     estado: string,
     cep: string,
-    info: string
     telefones: {
         id: number,
         numero: string,
@@ -99,10 +98,7 @@ function EditarCliente(props: props) {
                                         <label htmlFor="email">CEP</label>
                                         <input className="form-control" id="email" type="text" defaultValue={props.cep}></input>
                                     </div>
-                                    <div>
-                                        <label htmlFor="email">Informações adicionais</label>
-                                        <textarea className="form-control" id="email" defaultValue={props.info}></textarea>
-                                    </div>
+                                    
                                 </>
                             }
                             {secaoForm === 'Telefones' &&

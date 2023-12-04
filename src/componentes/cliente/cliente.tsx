@@ -16,7 +16,6 @@ type props = {
     cidade: string,
     estado: string,
     cep: string,
-    info: string
     telefones: {
         id: number,
         numero: string,
@@ -64,7 +63,6 @@ function Cliente(props: props) {
                         cidade={props.cidade}
                         estado={props.estado}
                         cep={props.cep}
-                        info={props.info}
                         telefones={props.telefones}
                     ></EditarCliente>
                     <BsXLg className="icone" style={{color: 'red'}} onClick={deletar}/>
@@ -97,7 +95,6 @@ function Cliente(props: props) {
                             <div><b>Cidade:  </b>{props.cidade}</div>
                             <div><b>Estado:  </b>{props.estado}</div>
                             <div><b>Código Postal:  </b>{props.cep}</div>
-                            <div><b>Informações adicionais:  </b>{props.info}</div>
                         </div>
                     </div>
                 </div>
