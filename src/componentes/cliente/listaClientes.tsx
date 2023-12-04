@@ -21,6 +21,7 @@ function ListaCliente(props: props) {
                             nome={c.nome}
                             nomeSocial={c.nomeSocial}
                             email={c.email}
+                            endId={c.endereco.id}
                             rua={c.endereco.rua}
                             numero={c.endereco.numero}
                             bairro={c.endereco.bairro}

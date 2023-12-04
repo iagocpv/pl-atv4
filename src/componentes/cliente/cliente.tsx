@@ -4,12 +4,14 @@ import { BsXLg } from "react-icons/bs";
 import { BsChevronDown } from "react-icons/bs";
 import EditarCliente from "./editarCliente";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 type props = {
     id: number,
     nome: string,
     nomeSocial: string,
     email: string,
+    endId: number,
     rua: string,
     numero: string,
     bairro: string,
@@ -38,11 +40,14 @@ function Cliente(props: props) {
             confirmButtonText: "Excluir",
             confirmButtonColor: 'firebrick',
             cancelButtonText: 'Cancelar'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire("Cliente excluido", "", "success");
+                axios.delete('http://localhost:32831/cliente/excluir', {data: {id: props.id}})
+                .then(() => {
+                    Swal.fire("Cliente excluido", "", "success")
+                }).catch(err => console.log(err))
             }
-          });
+        });
     }
 
     return(
@@ -58,6 +63,7 @@ function Cliente(props: props) {
                         nome={props.nome}
                         nomeSocial={props.nomeSocial}
                         email={props.email}
+                        endId={props.endId}
                         rua={props.rua}
                         numero={props.numero}
                         bairro={props.bairro}
