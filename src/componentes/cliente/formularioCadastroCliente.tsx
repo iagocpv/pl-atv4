@@ -15,6 +15,9 @@ function FormularioCadastroCliente(props: props) {
     const [cidade, setCidade] = useState('')
     const [estado, setEstado] = useState('')
     const [cep, setCep] = useState('')
+    const [infos, setInfos] = useState('')
+    const [ddd, setDdd] = useState('')
+    const [telefone, setTelefone] = useState('')
 
 
 
@@ -32,8 +35,15 @@ function FormularioCadastroCliente(props: props) {
                     bairro: bairro,
                     cidade: cidade,
                     estado: estado,
-                    cep: cep
-                }
+                    codigoPostal: cep,
+                    informacoesAdicionais: infos
+                },
+                telefones: [
+                    {
+                        numero: telefone,
+                        ddd: ddd
+                    }
+                ]
             }),
             headers: {
                 'Accept': 'application/json',
@@ -51,6 +61,9 @@ function FormularioCadastroCliente(props: props) {
             setCidade('')
             setEstado('')
             setCep('')
+            setDdd('')
+            setTelefone('')
+            setInfos('')
             console.log('Cliente Cadastrado',data)
         })
         .catch(err => {
@@ -77,6 +90,16 @@ function FormularioCadastroCliente(props: props) {
                     <input type="text"
                     value={email} onChange={(e: { target: { value: SetStateAction<string>; }; }) => setEmail(e.target.value)}
                     className="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon1" />
+                </div>
+                <div className="input-group mb-4">
+                    <input type="text"
+                    value={ddd} onChange={(e: { target: { value: SetStateAction<string>; }; }) => setDdd(e.target.value)}
+                    className="form-control" placeholder="DDD" aria-label="DDD" aria-describedby="basic-addon1" />
+                </div>
+                <div className="input-group mb-3">
+                    <input type="text"
+                    value={telefone} onChange={(e: { target: { value: SetStateAction<string>; }; }) => setTelefone(e.target.value)}
+                    className="form-control" placeholder="Telefone" aria-label="Telefone" aria-describedby="basic-addon1" />
                 </div>
                 <div className="input-group mb-3">
                     <input type="text"
@@ -108,7 +131,11 @@ function FormularioCadastroCliente(props: props) {
                     value={cep} onChange={(e: { target: { value: SetStateAction<string>; }; }) => setCep(e.target.value)}
                     className="form-control" placeholder="CEP" aria-label="CEP" aria-describedby="basic-addon1" />
                 </div>
-
+                <div className="input-group mb-3">
+                    <input type="text"
+                    value={infos} onChange={(e: { target: { value: SetStateAction<string>; }; }) => setInfos(e.target.value)}
+                    className="form-control" placeholder="Informações Adicionais" aria-label="Informações Adicionais" aria-describedby="basic-addon1" />
+                </div>
                 <div className="input-group mb-3">
                     <button className="btn btn-outline-secondary" type="submit" style={{ background: tema }}>Cadastrar</button>
                 </div>

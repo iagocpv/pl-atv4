@@ -18,6 +18,7 @@ type Cliente = {
       cidade: string;
       estado: string;
       codigoPostal: string;
+      informacoesAdicionais: string;
     };
     telefones: {
         id: number;
@@ -42,6 +43,7 @@ function ListaCliente(props: props) {
         }).then(res => {
             res.json().then(data => {
                 setCliente(data)
+                console.log(data)
             })
         })
     }, [])
@@ -63,6 +65,7 @@ function ListaCliente(props: props) {
                             cidade={c.endereco.cidade}
                             estado={c.endereco.estado}
                             cep={c.endereco.codigoPostal}
+                            info={c.endereco.informacoesAdicionais}
                             telefones = {c.telefones}
                         ></Cliente>
                     )

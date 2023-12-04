@@ -16,6 +16,7 @@ type props = {
     cidade: string,
     estado: string,
     cep: string,
+    info: string,
     telefones: {
         id: number,
         numero: string,
@@ -97,6 +98,10 @@ function EditarCliente(props: props) {
                                     <div>
                                         <label htmlFor="email">CEP</label>
                                         <input className="form-control" id="email" type="text" defaultValue={props.cep}></input>
+                                    </div>
+                                    <div>
+                                        <label htmlFor="email">Informações Adicionais</label>
+                                        <input className="form-control" id="email" type="text" defaultValue={props.info}></input>
                                     </div>
                                     
                                 </>
